@@ -13,7 +13,9 @@ class Author(models.Model):
 class Book(models.Model):
     title = models.CharField(max_length=100)
     isbn = models.CharField(max_length=20, unique=True)
-    author = models.ForeignKey(Author, on_delete=models.CASCADE, verbose_name="Book author")
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, verbose_name="book author")
+    excerpt = models.TextField(null=True, blank=False)
+    pub_date = models.DateField(null=True, blank=False)
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self) -> str:
